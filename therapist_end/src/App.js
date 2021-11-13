@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
->>>>>>> 569e1cd346c0b6521a28c4feb727795041bce136
 import './css/App.css';
 import "./css/bootstrap.min.css"
 import "./dist/css/adminlte.min.css"
