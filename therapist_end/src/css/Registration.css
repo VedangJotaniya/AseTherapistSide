@@ -6,11 +6,11 @@
   .Registration-logo {
     height: 40vmin;
     pointer-events: none;
-  }  
+  }
   
   @media (prefers-reduced-motion: no-preference) {
     .Registration-logo {
-      animation: Registration-logo-spin infinite 20s linear;
+      animation: App-logo-spin infinite 20s linear;
     }
   }
   

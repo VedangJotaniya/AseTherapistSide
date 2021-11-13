@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import React from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+>>>>>>> 569e1cd346c0b6521a28c4feb727795041bce136
 import './css/App.css';
 import "./css/bootstrap.min.css"
 import "./dist/css/adminlte.min.css"
@@ -12,6 +17,8 @@ import Assignment from './Assignment';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // import { }
 
+import Login from "./components/login.component";
+import SignUp from "./components/signup.component";
 
 function App() {
   return (

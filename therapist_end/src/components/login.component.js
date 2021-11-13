@@ -22,7 +22,7 @@ export default class Login extends Component {
                         <label className="custom-control-label" htmlFor="customCheck1">  Remember me</label>
                     </div>
                 </div>
-                <Link to="/home/dhruv/registrationui/src/Homepage.js" className="btn btn-primary">Submit</Link>
+                <button type="submit" className="btn btn-primary btn-block">Submit</button>
                 <p className="forgot-password text-right">
                     Forgot <a href="index.html">password?</a>
                 </p>
