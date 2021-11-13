@@ -1,7 +1,8 @@
 import React from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './Registration.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import './css/bootstrap.min.css';
+import './css/Registration.css';
+import { Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
@@ -31,12 +32,12 @@ function Registration() {
       <pre></pre>
       <div className="auth-wrapper">
         <div className="auth-inner">
-          <Switch>
+          <Routes>
             <Route exact path='/' component={Login} />
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={SignUp} />
 
-          </Switch>
+          </Routes>
         </div>
       </div>
     </div></Router>
