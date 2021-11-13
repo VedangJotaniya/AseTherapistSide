@@ -7,7 +7,7 @@ import Registration from './Registration';
 function App() {
   return (
     <div>
-      <h1>Working</h1>
+      <h1>ArtAid</h1>
       <Registration>
 
       </Registration>
