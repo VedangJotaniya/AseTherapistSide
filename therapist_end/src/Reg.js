@@ -1,12 +1,12 @@
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
-import { BrowserRouter as Switch, Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
 
-function Registration() {
+function Reg() {
   return (<Router>
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
@@ -42,4 +42,4 @@ function Registration() {
   );
 }
 
-export default Registration;
+export default Reg;
