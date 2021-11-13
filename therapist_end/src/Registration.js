@@ -11,7 +11,7 @@ function Registration() {
     <div className="Registration">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
-          
+
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
@@ -25,7 +25,7 @@ function Registration() {
           <div class="d-flex justify-content-center">
             <div class="banner">Art Aid</div>
           </div>
-          
+
         </div>
       </nav>
       <pre></pre>
@@ -35,7 +35,7 @@ function Registration() {
             <Route exact path='/' component={Login} />
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={SignUp} />
-            
+
           </Switch>
         </div>
       </div>
