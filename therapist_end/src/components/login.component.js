@@ -24,7 +24,7 @@ export default class Login extends Component {
                 </div>
                 <Link to="/home/dhruv/registrationui/src/Homepage.js" className="btn btn-primary">Submit</Link>
                 <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
+                    Forgot <a href="index.html">password?</a>
                 </p>
             </form>
         );
