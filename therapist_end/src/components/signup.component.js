@@ -10,10 +10,10 @@ export default class SignUp extends Component {
                 <div className="form-group">
                     <label>I`m </label>
                     &nbsp; &nbsp;&nbsp;
-                    <input type="radio" id="Therapist" name="who" value="Therapist"/>&nbsp; 
+                    <input type="radio" id="Therapist" name="who" value="Therapist" />&nbsp;
                     <label for="Therapist">Therapist</label>
                     &nbsp; &nbsp;&nbsp;
-                    <input type="radio" id="Patient" name="who" value="Patient"/>&nbsp; 
+                    <input type="radio" id="Patient" name="who" value="Patient" />&nbsp;
                     <label for="Patient">Patient</label>
 
                 </div>
@@ -28,7 +28,7 @@ export default class SignUp extends Component {
                     <input type="text" className="form-control" placeholder="Last name" />
                 </div>
 
-                
+
 
                 <div className="form-group">
                     <label>Email address</label>
@@ -40,11 +40,11 @@ export default class SignUp extends Component {
                     <input type="password" className="form-control" placeholder="Enter password" />
                 </div>
                 <pre></pre>
-                
+
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="forgot-password text-right">
-                    
-                    Already registered <a href="#">sign in?</a>
+
+                    Already registered <a href="index.html">sign in?</a>
                 </p>
             </form>
         );
