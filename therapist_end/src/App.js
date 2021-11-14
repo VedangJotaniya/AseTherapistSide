@@ -16,39 +16,22 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
+import Reg from './Reg';
+import HomePage from './HomePage';
 
 function App() {
   return (
     <div>
       <Router>
-        <nav className="main-header navbar navbar-expand navbar-white navbar-light">
-          {/* <!-- Left navbar links --> */}
-          <ul className="navbar-nav">
-            <li className="nav-item  md-inline-block">
-              <Link to='/Profile' className='nav-link'>Profile</Link>
-            </li>
-            <li className="nav-item d-none d-md-inline-block">
-              <Link to="/Appointment" className='nav-link'>Appointments</Link>
-            </li>
-            <li className="nav-item d-none d-md-inline-block">
-              <Link to="/Chat" className='nav-link'>Chats</Link>
-            </li>
-            <li className="nav-item d-none d-md-inline-block">
-              <Link to="/Assignments" className='nav-link'>Assignments</Link>
-            </li>
-          </ul>
-        </nav>
         <Switch>
-          <Route path="/Profile">
-            <Profile />
-          </Route>
-          <Route path="/Assignments" component={Assignment} />
-          <Route path="/Chat" component={Chat} />
-          <Route path="/Appointment" component={Appointments} />
+          <Router>
+            <Route path="/" component={<Reg />} />
+            <Route path="/home" component={<HomePage />} />
+          </Router>
         </Switch>
       </Router>
-
     </div>
+
   );
 }
 

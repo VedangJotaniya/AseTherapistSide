@@ -3,6 +3,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+import App from './App';
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
 
@@ -11,7 +12,7 @@ function Reg() {
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
-          
+
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
@@ -25,7 +26,7 @@ function Reg() {
           <div class="d-flex justify-content-center">
             <div class="banner">Art Aid</div>
           </div>
-          
+
         </div>
       </nav>
       <pre></pre>
