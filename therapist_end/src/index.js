@@ -4,9 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import "./css/index.css";
 import Reg from "./Reg";
 import Appointments from "./Appointments";
+import App from './App';
 ReactDOM.render(
-    <BrowserRouter>
-        <Reg />
-    </BrowserRouter>,
+    <App />,
     document.getElementById("root")
 );
