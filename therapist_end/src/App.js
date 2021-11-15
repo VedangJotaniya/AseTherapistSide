@@ -19,17 +19,25 @@ import SignUp from "./components/signup.component";
 import Reg from './Reg';
 import HomePage from './HomePage';
 
+function NotFound() {
+  return (<div>
+    Page not found
+  </div>);
+}
+
+
 function App() {
   return (
     <div>
       <Router>
         <Switch>
-          <Router>
-            <Route path="/" component={<Reg />} />
-            <Route path="/home" component={<HomePage />} />
-          </Router>
+          <Route exact path="/" component={Reg} />
+          <Route exact path="/home" component={HomePage} />
+          <Route component={NotFound} />
         </Switch>
       </Router>
+      {/* <Reg /> */}
+
     </div>
 
   );

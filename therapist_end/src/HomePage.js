@@ -18,6 +18,10 @@ export default class HomePage extends React.Component {
                         {/* <!-- Left navbar links --> */}
                         <ul className="navbar-nav">
                             <li className="nav-item  md-inline-block">
+                                <Link to='/Home' className='nav-link'>Home</Link>
+                            </li>
+
+                            <li className="nav-item  md-inline-block">
                                 <Link to='/Profile' className='nav-link'>Profile</Link>
                             </li>
                             <li className="nav-item d-none d-md-inline-block">
