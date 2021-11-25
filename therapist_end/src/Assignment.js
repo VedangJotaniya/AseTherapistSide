@@ -7,6 +7,7 @@ import "./css/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"
 import { unstable_getThreadID } from "scheduler/tracing";
 
 function NewAssignment(props) {
+
     return (
         <Modal
             {...props}
@@ -103,9 +104,10 @@ export default class Assignment extends React.Component {
                 }
 
 
-            ]
+            ],
+            modalShow: false
         }
-        var modalShow = false;
+
 
     }
 
@@ -122,23 +124,21 @@ export default class Assignment extends React.Component {
                 <div>
                     <div className="card card-solid">
                         <div>
-                            <button className='btn-primary' onClick={() => { this.state.modalShow = true; }} >Add Assignment</button>
+                            <button className='btn-primary' onClick={() => { this.setState({ modalShow: true }); }} >Add Assignment</button>
                         </div>
                         <div className="card-body pb-0">
                             <div className="row d-flex align-items-stretch">
                                 <div className="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
                                     {clients}
                                 </div>
+                                <NewAssignment show={this.state.modalShow} onHide={() => { this.setState({ modalShow: false }); }} />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <NewAssignment show={this.state.modalShow} onHide={() => { this.state.modalShow = false; }} />
-            </BrowserRouter>
+            </BrowserRouter >
         )
     }
 }
-
-
 
