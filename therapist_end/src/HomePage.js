@@ -22,26 +22,26 @@ export default class HomePage extends React.Component {
                             </li>
 
                             <li className="nav-item  md-inline-block">
-                                <Link to='/Profile' className='nav-link'>Profile</Link>
+                                <Link to='/home/Profile' className='nav-link'>Profile</Link>
                             </li>
                             <li className="nav-item d-none d-md-inline-block">
-                                <Link to="/Appointment" className='nav-link'>Appointments</Link>
+                                <Link to="/home/Appointment" className='nav-link'>Appointments</Link>
                             </li>
                             <li className="nav-item d-none d-md-inline-block">
-                                <Link to="/Chat" className='nav-link'>Chats</Link>
+                                <Link to="/home/Chat" className='nav-link'>Chats</Link>
                             </li>
                             <li className="nav-item d-none d-md-inline-block">
-                                <Link to="/Assignments" className='nav-link'>Assignments</Link>
+                                <Link to="/home/Assignments" className='nav-link'>Assignments</Link>
                             </li>
                         </ul>
                     </nav>
                     <Switch>
-                        <Route path="/Profile">
+                        <Route path="/home/Profile">
                             <Profile />
                         </Route>
-                        <Route path="/Assignments" component={Assignment} />
-                        <Route path="/Chat" component={Chat} />
-                        <Route path="/Appointment" component={Appointments} />
+                        <Route path="/home/Assignments" component={Assignment} />
+                        <Route path="/home/Chat" component={Chat} />
+                        <Route path="/home/Appointment" component={Appointments} />
                     </Switch>
                 </Router>
 

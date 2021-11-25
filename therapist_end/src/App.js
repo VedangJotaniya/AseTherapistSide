@@ -12,7 +12,7 @@ import Profile from './Profile';
 import Chat from './Chat';
 import Assignment from './Assignment';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import { }
+import { useHistory } from 'react-router';
 
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
@@ -20,9 +20,10 @@ import Reg from './Reg';
 import HomePage from './HomePage';
 
 function NotFound() {
-  return (<div>
-    Page not found
-  </div>);
+  const history = useHistory();
+
+  history.push({ pathname: "/home" });
+
 }
 
 

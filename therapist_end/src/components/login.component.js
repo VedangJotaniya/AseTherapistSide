@@ -4,9 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import App from "../App";
 import HomePage from "../HomePage";
-function View1() {
 
-}
 
 export default class Login extends Component {
 
@@ -23,16 +21,14 @@ export default class Login extends Component {
     }
 
     handleChange = (event) => {
-        this.state[event.target.name] = event.target.value;
+        // this.state[event.target.name] = event.target.value;
     }
 
     LoginUser = () => {
-        alert("history");
-        // axios.post("localhost:3001/auth/login", this.state).then((response) => { console.log(response) });
-        // this.setState({ view: 1 });
-        // console.log(this.state);
-        this.props.history.push("/home");
-        // window.location.reload();
+
+
+        this.props.history.push({ pathname: "/home/" });
+
     }
 
 
@@ -66,13 +62,13 @@ export default class Login extends Component {
                     </div>
                     <button type="submit" className="btn btn-primary btn-block" onClick={() => { this.LoginUser(); }} >Submit</button>
                     <p className="forgot-password text-right">
-                        Forgot <a href="index.html">password?</a>
+                        <button>Forgot password?</button>
                     </p>
                 </form >
-
+                {/* 
                 <Switch>
                     <Route exact path="/home" component={HomePage} />
-                </Switch>
+                </Switch> */}
             </Router>
         );
 
