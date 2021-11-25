@@ -1,44 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+import App from './App';
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
 
 function Reg() {
-  return (<Router>
-    <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-        <div className="container">
-          
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to={"/sign-in"}>Login</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/sign-up"}>Sign up</Link>
-              </li>
-            </ul>
+
+  const [count, setCount] = useState(0);
+  const [element, setElement] = useState("<Login/>");
+
+  function changeReg(toVal) {
+    setCount(toVal);
+  }
+
+  function loadElement() {
+
+    if (count == 0) {
+
+      return <Login />;
+    }
+    else {
+      return <SignUp />;
+    }
+  }
+  return (
+
+    <Router>
+      <div className="App">
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+          <div className="container">
+
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <button className="nav-link" onClick={() => { changeReg(0) }}>Login</button>
+                </li>
+                <li className="nav-item">
+                  <button className="nav-link" onClick={() => { changeReg(1) }}>Sign up</button>
+                </li>
+              </ul>
+            </div>
+            <div class="d-flex justify-content-center">
+              <div class="banner">Art Aid</div>
+            </div>
+
           </div>
-          <div class="d-flex justify-content-center">
-            <div class="banner">Art Aid</div>
+        </nav>
+        <pre></pre>
+        <div className="auth-wrapper">
+          <div className="auth-inner">
+
+            {loadElement()}
+
           </div>
-          
-        </div>
-      </nav>
-      <pre></pre>
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Switch>
-            <Route exact path='/' component={Login} />
-            <Route path="/sign-in" component={Login} />
-            <Route path="/sign-up" component={SignUp} />
-          </Switch>
         </div>
       </div>
-    </div></Router>
+    </Router>
   );
 }
 
