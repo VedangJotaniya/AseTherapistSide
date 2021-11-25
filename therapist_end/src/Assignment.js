@@ -5,6 +5,7 @@ import "./css/bootstrap.min.css"
 import "./dist/css/adminlte.min.css"
 import "./css/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"
 import { unstable_getThreadID } from "scheduler/tracing";
+import axios from 'axios';
 
 function NewAssignment(props) {
 
@@ -17,21 +18,47 @@ function NewAssignment(props) {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Modal heading
+                    Set New Appointment
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <h4>Centered Modal</h4>
-                <p>
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                    dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                    consectetur ac, vestibulum at eros.
-                </p>
+                <div>
+                    <label>Client</label>
+                    <select className="form-control">
+                        <option>John</option>
+                        <option>Jason</option>
+                        <option>Lawrence</option>
+                        <option>Aznam</option>
+                        <option>Lorn</option>
+                        <option>Mick</option>
+                    </select>
+                    <label className="form-label">Type</label>
+                    <div >
+                        <input type="text" className="form-control" />
+                    </div>
+
+                </div>
+
             </Modal.Body>
             <Modal.Footer>
+                <button className="submit" onClick={() => {
+                    axios.post("http://localhost:3001/addAssignment", {
+                        name: "John",
+                        assignment: "Drawing",
+                        date: "2021/11/26",
+                        status: "Given"
+                    }).then(res => {
+                        console.log(res);
+                        console.log(res.data);
+                    })
+                    props.onHide();
+                }
+                }>Submit</button>
+
                 <button onClick={props.onHide}>Close</button>
+
             </Modal.Footer>
-        </Modal>
+        </Modal >
     );
 
 }
@@ -39,11 +66,13 @@ function NewAssignment(props) {
 
 function Client(props) {
     console.log(props);
-    const clientName = props.value.name;
+    const clientName = props.value.clientName;
     const clientID = props.value.id;
     const clientHeading = "Child";
-    const clientAbout = " Client about";
-    const clientTask = props.value.task;
+    const clientAbout = "about";
+    const clientStatus = props.value.status;
+    const clientDate = props.value.date;
+    const clientTask = props.value.assignment;
 
     return (
 
@@ -93,9 +122,11 @@ export default class Assignment extends React.Component {
         this.state = {
             clients: [
                 {
-                    name: "A",
+                    clientName: "A",
                     id: "0",
-                    task: "draw"
+                    assigment: "draw",
+                    date: "",
+                    status: ""
                 },
                 {
                     name: "A",
@@ -107,10 +138,14 @@ export default class Assignment extends React.Component {
             ],
             modalShow: false
         }
-
-
     }
 
+    componentDidMount() {
+        var clients = axios.get("localhost:3001/getAssigments")
+            .then(res => {
+                this.setState({ clients: res.data })
+            })
+    }
 
     render() {
 
