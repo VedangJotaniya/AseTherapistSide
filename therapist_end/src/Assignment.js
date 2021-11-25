@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import Modal from "bootstrap";
+import Modal from "react-bootstrap/Modal";
 import "./css/bootstrap.min.css"
 import "./dist/css/adminlte.min.css"
 import "./css/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"
@@ -28,7 +28,7 @@ function NewAssignment(props) {
                 </p>
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
+                <button onClick={props.onHide}>Close</button>
             </Modal.Footer>
         </Modal>
     );
@@ -134,7 +134,7 @@ export default class Assignment extends React.Component {
                     </div>
                 </div>
 
-                <NewAssignment show={modalShow} onHide={() => { this.state.modalShow = false; }} />
+                <NewAssignment show={this.state.modalShow} onHide={() => { this.state.modalShow = false; }} />
             </BrowserRouter>
         )
     }
