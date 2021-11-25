@@ -2,14 +2,17 @@ import React from "react";
 import "./css/bootstrap.min.css"
 import "./dist/css/adminlte.min.css"
 import "./css/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"
+import Modal from "react-bootstrap/Modal";
 
 
 export default class Appointment extends React.Component {
 
-
+    
+    
     render() {
 
-
+        
+        
         return (<div> Appointments
 
             <div class="card">
@@ -67,6 +70,7 @@ export default class Appointment extends React.Component {
                     </div>
                 </div>
                 <div class="card-footer clearfix">
+                    
                     <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Set new Appointementts</a>
                     <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Appointments</a>
                 </div>
