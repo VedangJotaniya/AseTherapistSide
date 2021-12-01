@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import "./css/bootstrap.min.css"
@@ -8,6 +8,20 @@ import { unstable_getThreadID } from "scheduler/tracing";
 import axios from 'axios';
 
 function NewAssignment(props) {
+
+    const [state, setState] = useState({
+        assignment: "",
+        name: ""
+    });
+
+    function handlenameChange(event) {
+        alert("name");
+        setState({ name: event.target.value });
+    }
+
+    function handleAssignmentChange(event) {
+        setState({ assignment: event.target.value });
+    }
 
     return (
         <Modal
@@ -24,17 +38,17 @@ function NewAssignment(props) {
             <Modal.Body>
                 <div>
                     <label>Client</label>
-                    <select className="form-control">
-                        <option>John</option>
-                        <option>Jason</option>
-                        <option>Lawrence</option>
-                        <option>Aznam</option>
-                        <option>Lorn</option>
-                        <option>Mick</option>
+                    <select className="form-control" name="name" >
+                        <option value="John">John</option>
+                        <option value="Jason">Jason</option>
+                        <option value="Lawerence">Lawrence</option>
+                        <option value="Aznam">Aznam</option>
+                        <option value="Lorn">Lorn</option>
+                        <option value="Mick">Mick</option>
                     </select>
-                    <label className="form-label">Type</label>
+                    <label className="form-label" >Type</label>
                     <div >
-                        <input type="text" className="form-control" />
+                        <input type="text" name="assignment" className="form-control" />
                     </div>
 
                 </div>
@@ -42,9 +56,9 @@ function NewAssignment(props) {
             </Modal.Body>
             <Modal.Footer>
                 <button className="submit" onClick={() => {
-                    axios.post("http://localhost:3001/addAssignment", {
-                        name: "John",
-                        assignment: "Drawing",
+                    axios.post("http://localhost:3001/assignments/addAssignment", {
+                        name: "Mick",
+                        assignment: "Sketch",
                         date: "2021/11/26",
                         status: "Given"
                     }).then(res => {
@@ -122,7 +136,7 @@ export default class Assignment extends React.Component {
         this.state = {
             clients: [
                 {
-                    clientName: "A",
+                    clientName: "Jason Horn",
                     id: "0",
                     assigment: "draw",
                     date: "",
