@@ -66,8 +66,6 @@ function NewAssignment(props) {
 
 export default class Appointment extends React.Component {
 
-<<<<<<< HEAD
-=======
     constructor() {
         super();
         this.state = {
@@ -75,7 +73,6 @@ export default class Appointment extends React.Component {
         }
     }
 
->>>>>>> 598b5aaffb61f87702e3b3a443c1d11a11300a14
     render() {
 
         return (<div> Appointments
@@ -134,17 +131,10 @@ export default class Appointment extends React.Component {
                         </table>
                     </div>
                 </div>
-<<<<<<< HEAD
-            <div className="card-footer clearfix">
-
-                <button className="btn btn-sm btn-info float-left">Set new Appointementts</button>
-                <button className="btn btn-sm btn-secondary float-right">View All Appointments</button>
-=======
                 <div class="card-footer clearfix">
 
                     <a href="javascript:void(0)" > <button className='btn-primary' onClick={() => { this.setState({ modalShow: true }); }} >New Appointments</button></a>
                     <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Appointments</a>
->>>>>>> 598b5aaffb61f87702e3b3a443c1d11a11300a14
                 </div>
             </div>
 
