@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import App from './App';
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
+import HomePage from "./HomePage";
+
 
 function Reg() {
 
@@ -43,8 +45,8 @@ function Reg() {
                 </li>
               </ul>
             </div>
-            <div class="d-flex justify-content-center">
-              <div class="banner">Art Aid</div>
+            <div className="d-flex justify-content-center">
+              <div className="banner">Art Aid</div>
             </div>
 
           </div>
@@ -58,6 +60,7 @@ function Reg() {
           </div>
         </div>
       </div>
+      <Route exact path="/home" component={HomePage} />
     </Router>
   );
 }

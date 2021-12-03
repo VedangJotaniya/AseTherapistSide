@@ -21,8 +21,10 @@ import HomePage from './HomePage';
 
 function NotFound() {
   const history = useHistory();
-
-  history.push({ pathname: "/home" });
+  <div>
+    Error 404 : Not Found
+  </div>
+  // history.push({ pathname: "/home" });
 
 }
 

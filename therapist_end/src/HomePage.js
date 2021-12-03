@@ -35,14 +35,14 @@ export default class HomePage extends React.Component {
                             </li>
                         </ul>
                     </nav>
-                    <Switch>
-                        <Route path="/home/Profile">
-                            <Profile />
-                        </Route>
-                        <Route path="/home/Assignments" component={Assignment} />
-                        <Route path="/home/Chat" component={Chat} />
-                        <Route path="/home/Appointment" component={Appointments} />
-                    </Switch>
+                    {/* <Switch> */}
+                    <Route path="/home/Profile">
+                        <Profile />
+                    </Route>
+                    <Route path="/home/Assignments" component={Assignment} />
+                    <Route path="/home/Chat" component={Chat} />
+                    <Route path="/home/Appointment" component={Appointments} />
+                    {/* </Switch> */}
                 </Router>
 
             </div>
