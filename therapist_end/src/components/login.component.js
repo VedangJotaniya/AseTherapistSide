@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { useHistory } from "react-router";
 import App from "../App";
+
+import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 import HomePage from "../HomePage";
+
+
 
 
 export default class Login extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             email: "",
             password: "",
@@ -17,17 +19,18 @@ export default class Login extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.LoginUser = this.LoginUser.bind(this);
-        // const history = useHistory();
+
     }
 
     handleChange = (event) => {
-        // this.state[event.target.name] = event.target.value;
+        this.state({ [event.target.name]: event.target.value });
     }
 
     LoginUser = () => {
 
-
-        this.props.history.push({ pathname: "/home/" });
+        this.props.setThisUserName("vedang");
+        this.props.setThisUserID("11111");
+        this.props.testing("/home");
 
     }
 
@@ -36,8 +39,6 @@ export default class Login extends Component {
 
     render() {
 
-        if (this.state.view != 0)
-            return <App />;
 
         return (
             <Router>
@@ -65,10 +66,8 @@ export default class Login extends Component {
                         <button>Forgot password?</button>
                     </p>
                 </form >
-                {/* 
-                <Switch>
-                    <Route exact path="/home" component={HomePage} />
-                </Switch> */}
+                <Route exact path="/home" component={HomePage} />
+
             </Router>
         );
 

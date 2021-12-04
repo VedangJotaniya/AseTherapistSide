@@ -10,6 +10,17 @@ import headimg from './image/img1.jpg';
 
 export default class HomePage extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            thisUserName: "",
+            thisUserID: ""
+        }
+    }
+
+    componentDidMount() {
+
+    }
 
     render() {
         return (
@@ -37,9 +48,11 @@ export default class HomePage extends React.Component {
                             <li className="nav-item  md-inline-block">
                                 <Link to='/home/FAQ' className='nav-link'>FAQ</Link>
                             </li>
-                             <li className="nav-item  md-inline-block">
-                                <Link to='/home/FAQ' className='nav-link'>FAQ</Link>
+                            <li>
+                                CN:{this.props.thisUserName}
+                                ID:{this.props.thisUserID}
                             </li>
+
                         </ul>
                     </nav>
                     <Switch>

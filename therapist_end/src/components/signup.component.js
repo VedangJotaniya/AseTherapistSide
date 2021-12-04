@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-
+import axios from "axios";
 
 export default class SignUp extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             fname: "",
@@ -17,6 +17,7 @@ export default class SignUp extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.RegisterUser = this.RegisterUser.bind(this);
+        this.handleTherapist = this.handleTherapist.bind(this);
     }
 
 
@@ -28,8 +29,52 @@ export default class SignUp extends Component {
     }
 
     RegisterUser = () => {
-        var isTherapist = document.getElementsByName("who").value;
-        alert(isTherapist);
+
+        const NewUser = {
+            name: this.state.fname + " " + this.state.lname,
+            email: this.state.email,
+            password: this.state.password,
+            contact: this.state.contact,
+            address: this.state.address,
+            isTherapist: this.state.isTherapist
+        };
+
+
+        const sample = {
+            "name": "admin11",
+            "password": "admin",
+            "email": "jay11@gmail.com",
+            "contact": "113456789",
+            "address": "Johson Street",
+            "isTherapist": "0"
+        };
+
+        this.props.setThisUserName(NewUser.name);
+        this.props.setThisUserID(NewUser.contact);
+        if (NewUser.isTherapist === "0")
+            this.props.testing("/client");
+        else
+            this.props.testing("/home");
+        // axios.post("http://localhost:3001/auth/register", { sample })
+        //     .then(res => {
+        //         alert(res.message);
+
+        //         if (res.message === "Successfully Registered") {
+        //             //this.history.push("/home");
+        //             this.props.authUser(this.state.isTherapist);
+        //         }
+
+
+        //     })
+
+
+
+    }
+
+    handleTherapist(props) {
+        this.setState({
+            isTherapist: props.target.value
+        })
     }
 
     render() {
@@ -37,14 +82,14 @@ export default class SignUp extends Component {
             <form>
                 <h3>Sign Up</h3>
 
-                <div className="form-group">
+                <div className="form-group" onClick={this.handleTherapist}>
                     <label>I`m </label>
                     &nbsp; &nbsp;&nbsp;
                     <input type="radio" id="Therapist" name="who" value="0" />&nbsp;
-                    <label for="Therapist">Therapist</label>
+                    <label htmlFor="Therapist">Therapist</label>
                     &nbsp; &nbsp;&nbsp;
                     <input type="radio" id="Patient" name="who" value="1" />&nbsp;
-                    <label for="Patient">Patient</label>
+                    <label htmlFor="Patient">Patient</label>
                 </div>
 
                 <div className="form-group">
