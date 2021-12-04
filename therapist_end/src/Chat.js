@@ -1,6 +1,8 @@
 import React from "react";
 import UserDp from "./dist/img/user2-160x160.jpg";
 import "./css/App.css"
+import axios from "axios"
+
 
 function DisplayUser(props) {
     const UserImage = props.UserImage;
@@ -13,7 +15,7 @@ function DisplayUser(props) {
                 <img src={UserImage} className="img-circle elevation-2" alt="User Image" />
             </div>
             <div className="info">
-                <button className="d-block btn btn-link" onClick="">{UserName}</button>
+                <button className="d-block btn btn-link" onClick={() => { props.handleCurrentClient({ UserName }) }}>{UserName}</button>
             </div>
         </div>
     );
@@ -83,17 +85,18 @@ export default class Chat extends React.Component {
             Messages: []
         }
         this.updateMessages = this.updateMessages.bind(this);
-
+        this.handleCurrentClient = this.handleCurrentClient.bind(this);
+        this.sendMessage = this.sendMessage.bind(this);
     }
 
     componentDidMount() {
         const myClients = [
             {
-                name: "A",
+                name: "Jayesh",
                 imageUrl: "https://picsum.photos/id/237/200/300"
             },
             {
-                name: "A",
+                name: "Mayank",
                 imageUrl: "https://picsum.photos/id/237/200/300"
             }
         ];
@@ -106,6 +109,7 @@ export default class Chat extends React.Component {
     }
 
     updateMessages() {
+        const fetchMessages = axios.get
         const myMessages = [
             {
                 To: "t1",
@@ -133,24 +137,29 @@ export default class Chat extends React.Component {
             }
 
         ];
-        console.log("Called update Messages");
         this.setState({
             Messages: myMessages
         });
     }
 
+    handleCurrentClient(props) {
+        this.setState({
+            currentClient: props.UserName
+        });
+        this.updateMessages();
+    }
 
+    sendMessage() {
+
+    }
     render() {
 
         const chatUsers = this.state.clients.map((client) => {
 
-            return <DisplayUser UserName={client.name} UserImage={client.imageUrl} />
+            return <DisplayUser key={client.name} UserName={client.name} UserImage={client.imageUrl} handleCurrentClient={this.handleCurrentClient} />
         });
 
         const chatMessages = this.state.Messages.map((Message) => {
-            console.log("Meassage");
-            console.log(Message.To);
-            console.log(this.state.currentClient);
             if (Message.To == this.state.currentClient) {
                 return <SentMessage Receiver={Message.To} DateTime={Message.DateTime} Text={Message.Text} ReceiverDp={Message.UserDp} />
             }
@@ -158,21 +167,17 @@ export default class Chat extends React.Component {
             return <ReceiveMessage Sender={Message.To} DateTime={Message.DateTime} Text={Message.Text} SenderDp={Message.UserDp} />
         });
 
-        console.log("message");
-        console.log(chatMessages);
 
         return (
-            <section className="content ">
-                <div className="container-fluid">
-                    <div className="row " >
-                        <div className="col-2">
-                            <aside className="main-sidebar sidebar-light-primary elevation-1">
-                                <div className="sidebar">
-                                    {chatUsers}
-                                </div>
-                            </aside>
-                        </div>
-                        <div className="col ">
+            <div className="wrapper">
+                <div className="main-sidebar sidebar-light-primary elevation-4">
+                    <div className="sidebar">
+                        {chatUsers}
+                    </div>
+                </div>
+                <div className="content-wrapper">
+                    <section className="content ">
+                        <div className="container-fluid">
                             <div className="card direct direct-chat-primary ">
                                 <div className="card-body">
                                     <div className="direct-chat-messages border border-primary set-row">
@@ -191,9 +196,9 @@ export default class Chat extends React.Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
-            </section>
+            </div>
         );
     }
 }

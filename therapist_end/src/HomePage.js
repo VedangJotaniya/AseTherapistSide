@@ -10,6 +10,17 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default class HomePage extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            thisUserName: "",
+            thisUserID: ""
+        }
+    }
+
+    componentDidMount() {
+
+    }
 
     render() {
         return (
@@ -37,6 +48,11 @@ export default class HomePage extends React.Component {
                             <li className="nav-item  md-inline-block">
                                 <Link to='/home/FAQ' className='nav-link'>FAQ</Link>
                             </li>
+                            <li>
+                                CN:{this.props.thisUserName}
+                                ID:{this.props.thisUserID}
+                            </li>
+
                         </ul>
                     </nav>
                     <Switch>
