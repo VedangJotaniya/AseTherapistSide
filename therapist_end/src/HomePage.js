@@ -18,19 +18,6 @@ export default class HomePage extends React.Component {
         }
     }
 
-    componentDidMount() {
-        const location = this.state.useLocation();
-        const queryParams = new URLSearchParams(location.search)
-
-        if (queryParams.has('email')) {
-            // setError('There was a problem.')
-            queryParams.delete('email');
-            queryParams.delete('password');
-            this.props.history.replace({
-                search: queryParams.toString(),
-            })
-        }
-    }
 
     render() {
         return (
@@ -71,7 +58,9 @@ export default class HomePage extends React.Component {
                         </Route>
                         <Route path="/home/Assignments" component={Assignment} />
                         <Route path="/home/Chat" component={Chat} />
-                        <Route path="/home/Appointment" component={Appointments} />
+                        <Route path="/home/Appointment" component={Appointments} >
+                            <Appointments thisUserName={ this.props.thisUserName} thisUserId={this.props.thisUserID}/>
+                            </Route>
                         <Route path="/home/FAQ" component={FAQ} />
                     </Switch>
                 </Router>

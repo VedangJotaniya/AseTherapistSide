@@ -4,6 +4,7 @@ import "./dist/css/adminlte.min.css"
 import "./css/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"
 import "./css//plugins/daterangepicker/daterangepicker.css"
 import Modal from "react-bootstrap/Modal";
+import axios from "axios";
 
 
 function NewAssignment(props) {
@@ -75,29 +76,13 @@ export default class Appointment extends React.Component {
     }
 
     componentDidMount() {
-        const myAppointments = [
-            {
-                Num: "9842",
-                Name: "Sarah Johnes",
-                Status: "Task 1 Done",
-                Date: "2021/10/10"
-            },
-            {
-                Num: "848",
-                Name: "John Doe",
-                Status: "Task 1",
-                Date: "2021/12/02"
-            },
-            {
-                Num: "29",
-                Name: "David Johnes",
-                Status: "Meeting 1",
-                Date: "2021/12/10"
-            }];
-
-        this.setState({ appointments: myAppointments });
-
-
+        axios.get(`http://localhost:3001/user/allSlots/${this.props.thisUserId}`)
+            .then(result =>{
+                console.log(result.data[0].slots)
+            })
+            .catch(err =>{
+                console.log(err)
+            });
     }
 
 

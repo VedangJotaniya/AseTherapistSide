@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import App from "../App";
-
-import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import HomePage from "../HomePage";
 
 
@@ -28,28 +26,33 @@ export default class Login extends Component {
 
     LoginUser() {
 
-
-
+        alert(this.state.email, this.state.password)
         // const User = 
-
-        axios.post("http://localhost:3001/auth/login", { email: this.state.email, password: this.state.password })
-            .then(res => {
-                if (res.status == 200) {
-                    console.log("res");
-                    console.log(res);
-                    this.props.setThisUserName(this.state.email);
-                    this.props.setThisUserID(res.data._id);
-                    if (this.props.setTherapist === 0)
-                        this.props.testing("/client");
-                    else
-                        this.props.testing("/home");
-                }
-                else {
-                    alert(res.message);
-                }
-            }).catch(err => {
-                alert(err.message);
-            });
+        this.props.setThisUserName('jay11@gmail.com');
+        this.props.setThisUserID('61ab1954f142eb05816ef617');
+        if(this.state.email == 'v1@gmail.com'){
+            this.props.testing('/client');
+        }else{
+            this.props.testing('/home')
+        }
+        // axios.post("http://localhost:3001/auth/login", { email: this.state.email, password: this.state.password })
+        //     .then(res => {
+        //         alert(res)
+        //         if (res.status == 200) {
+        //             console.log("res");
+        //             console.log(res);
+        //             alert(res)
+        //             this.props.setThisUserName(this.state.email);
+        //             this.props.setThisUserID(res.data._id);
+        //             if (res.data.isTherapist === 0)
+        //                 this.props.testing("/client");
+        //             else
+        //                 this.props.testing("/home");
+        //         }
+        //         else {
+        //             alert(res.message);
+        //         }
+        //     });
 
     }
 
