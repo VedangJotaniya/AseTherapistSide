@@ -42,13 +42,15 @@ function Reg(props) {
   }
 
   function testing(props) {
-    alert(props);
-    history.push(props);
+    history.push({
+      "pathname": props,
+      search: ""
+    });
   }
 
 
   function authUser(type) {
-    alert(type);
+
     if (type == 0) {
       history.push("/home");
     }

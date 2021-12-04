@@ -19,7 +19,17 @@ export default class HomePage extends React.Component {
     }
 
     componentDidMount() {
+        const location = this.state.useLocation();
+        const queryParams = new URLSearchParams(location.search)
 
+        if (queryParams.has('email')) {
+            // setError('There was a problem.')
+            queryParams.delete('email');
+            queryParams.delete('password');
+            this.props.history.replace({
+                search: queryParams.toString(),
+            })
+        }
     }
 
     render() {

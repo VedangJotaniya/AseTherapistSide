@@ -22,15 +22,34 @@ export default class Login extends Component {
 
     }
 
-    handleChange = (event) => {
-        this.state({ [event.target.name]: event.target.value });
+    handleChange(event) {
+        this.setState({ [event.target.name]: event.target.value });
     }
 
-    LoginUser = () => {
+    LoginUser() {
 
-        this.props.setThisUserName("vedang");
-        this.props.setThisUserID("11111");
-        this.props.testing("/home");
+
+
+        // const User = 
+
+        axios.post("http://localhost:3001/auth/login", { email: this.state.email, password: this.state.password })
+            .then(res => {
+                if (res.status == 200) {
+                    console.log("res");
+                    console.log(res);
+                    this.props.setThisUserName(this.state.email);
+                    this.props.setThisUserID(res.data._id);
+                    if (this.props.setTherapist === 0)
+                        this.props.testing("/client");
+                    else
+                        this.props.testing("/home");
+                }
+                else {
+                    alert(res.message);
+                }
+            }).catch(err => {
+                alert(err.message);
+            });
 
     }
 
@@ -47,12 +66,12 @@ export default class Login extends Component {
 
                     <div className="form-group">
                         <label>Email address</label>
-                        <input type="email" className="form-control" placeholder="Enter email" onChange={() => { this.handleChange(); }} />
+                        <input type="email" className="form-control" name="email" placeholder="Enter email" onChange={this.handleChange} />
                     </div>
 
                     <div className="form-group">
                         <label>Password</label>
-                        <input type="password" className="form-control" placeholder="Enter password" onChange={() => { this.handleChange(); }} />
+                        <input type="password" className="form-control" name="password" placeholder="Enter password" onChange={this.handleChange} />
                     </div>
 
                     <div className="form-group">

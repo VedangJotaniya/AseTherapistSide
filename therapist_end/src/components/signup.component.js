@@ -49,23 +49,36 @@ export default class SignUp extends Component {
             "isTherapist": "0"
         };
 
-        this.props.setThisUserName(NewUser.name);
-        this.props.setThisUserID(NewUser.contact);
-        if (NewUser.isTherapist === "0")
-            this.props.testing("/client");
-        else
-            this.props.testing("/home");
-        // axios.post("http://localhost:3001/auth/register", { sample })
-        //     .then(res => {
-        //         alert(res.message);
-
-        //         if (res.message === "Successfully Registered") {
-        //             //this.history.push("/home");
-        //             this.props.authUser(this.state.isTherapist);
-        //         }
 
 
-        //     })
+        console.log("new user");
+        console.log(NewUser);
+        axios.post("http://localhost:3001/auth/register", {
+            name: this.state.fname + " " + this.state.lname,
+            email: this.state.email,
+            password: this.state.password,
+            contact: this.state.contact,
+            address: this.state.address,
+            isTherapist: this.state.isTherapist
+        })
+            .then(res => {
+                alert(res.message);
+                console.log(res);
+                if (res.status === 200) {
+                    //this.history.push("/home");
+                    this.props.setThisUserName(NewUser.name);
+                    this.props.setThisUserID(res.data._id);
+                    if (NewUser.isTherapist === 0)
+                        this.props.testing("/client");
+                    else
+                        this.props.testing("/home");
+                }
+                else {
+                    alert(res.message);
+                }
+            }).catch(err => {
+                console.log(err);
+            })
 
 
 
