@@ -2,8 +2,8 @@ const data = {
     title: "FAQ",
     rows: [
       {
-        title: " Question 1",
-        content: "Answer "
+        title: " Are the Therapist on website registered with the Professional Society",
+        content: "Yes, all the professionals are certified and perform the therapies which they have achieved the proficiency in."
       },
       {
         title: "  Question 2",
