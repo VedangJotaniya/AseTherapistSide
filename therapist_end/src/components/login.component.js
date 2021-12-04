@@ -35,11 +35,11 @@ export default class Login extends Component {
         axios.post("http://localhost:3001/auth/login", { email: this.state.email, password: this.state.password })
             .then(res => {
                 if (res.status == 200) {
-                    console.log("res");
-                    console.log(res);
-                    this.props.setThisUserName(this.state.email);
+                    console.log(res.data);
+                    alert("res" + res.data);
+                    this.props.setThisUserName(res.data.email);
                     this.props.setThisUserID(res.data._id);
-                    if (this.props.setTherapist === 0)
+                    if (res.data.isTherapist === 0)
                         this.props.testing("/client");
                     else
                         this.props.testing("/home");
@@ -48,7 +48,7 @@ export default class Login extends Component {
                     alert(res.message);
                 }
             }).catch(err => {
-                alert(err.message);
+                alert("login error" + err.message);
             });
 
     }

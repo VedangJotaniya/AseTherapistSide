@@ -19,17 +19,6 @@ export default class HomePage extends React.Component {
     }
 
     componentDidMount() {
-        const location = this.state.useLocation();
-        const queryParams = new URLSearchParams(location.search)
-
-        if (queryParams.has('email')) {
-            // setError('There was a problem.')
-            queryParams.delete('email');
-            queryParams.delete('password');
-            this.props.history.replace({
-                search: queryParams.toString(),
-            })
-        }
     }
 
     render() {
@@ -83,7 +72,7 @@ export default class HomePage extends React.Component {
                     <p style={{textAlign:'center'}}>With Art Aid clients can schedule appointments in just seconds at any convenient time. The schedule allows you to add therapist, also offer different services in one schedule. Would you like to synchronize your online appointment schedule with your private agenda to make sure no therapy appointments can be booked when you have a private appointment? No problem ..................    
                     We are here!</p>
             </div> */}
-            
+
             </div>
 
         );
