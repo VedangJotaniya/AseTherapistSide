@@ -71,16 +71,42 @@ export default class Appointment extends React.Component {
         super();
         this.state = {
             modalShow: false,
-            appointments: []
+            appointments: [
+                {
+                    Num: 1,
+                    Name: "Jayesh",
+                    Status: "Scheduled",
+                    Date: "Jan 01"
+                },
+                {
+                    Num: 2,
+                    Name: "Mayank",
+                    Status: "Scheduled",
+                    Date: "Jan 03"
+                },
+                {
+                    Num: 3,
+                    Name: "Danielle",
+                    Status: "Scheduled",
+                    Date: "Jan 05"
+                },
+                {
+                    Num: 4,
+                    Name: "John",
+                    Status: "Scheduled",
+                    Date: "Jan 06"
+                },
+
+            ]
         }
     }
 
     componentDidMount() {
         axios.get(`http://localhost:3001/user/allSlots/${this.props.thisUserId}`)
-            .then(result =>{
+            .then(result => {
                 console.log(result.data[0].slots)
             })
-            .catch(err =>{
+            .catch(err => {
                 console.log(err)
             });
     }
