@@ -54,7 +54,7 @@ export default class HomePage extends React.Component {
                     </nav>
                     <Switch>
                         <Route path="/home/Profile">
-                            <Profile />
+                            <Profile thisUserName={this.props.thisUserName} thisUserId={this.props.thisUserID}/>
                         </Route>
                         <Route path="/home/Assignments" component={Assignment} />
                         <Route path="/home/Chat" component={Chat} >

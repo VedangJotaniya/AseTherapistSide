@@ -24,17 +24,18 @@ export default class Login extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
-    LoginUser() {
+    LoginUser(event) {
 
-        alert("Logincalled" + this.state.email + " " + this.state.password);
+        event.preventDefault();
+        // alert("Logincalled" + this.state.email + " " + this.state.password);
         // const User = 
         this.props.setThisUserName(this.state.email.split("@")[0]);
         this.props.setThisUserID('61ab1954f142eb05816ef617');
-        if (this.state.email == 'v1@gmail.com') {
-            this.props.testing('/client');
+        if (this.state.email === 'v1@gmail.com') {
+            this.props.goToClient();
         } else {
             this.props.testing('/home')
-        }
+     }
         // axios.post("http://localhost:3001/auth/login", { email: this.state.email, password: this.state.password })
         //     .then(res => {
         //         alert(res)
@@ -83,7 +84,7 @@ export default class Login extends Component {
                             <label className="custom-control-label" htmlFor="customCheck1">  Remember me</label>
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-primary btn-block" onClick={() => { this.LoginUser(); }} >Submit</button>
+                    <button type="button" className="btn btn-primary btn-block" onClick={this.LoginUser} >Submit</button>
                     <p className="forgot-password text-right">
                         <button>Forgot password?</button>
                     </p>

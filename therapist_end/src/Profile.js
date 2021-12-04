@@ -5,8 +5,8 @@ import "./css/plugins/fontawesome-free/css/all.min.css"
 export default class Profile extends React.Component {
 
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             name: "",
             degree: "",

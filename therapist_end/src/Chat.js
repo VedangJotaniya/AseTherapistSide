@@ -123,7 +123,7 @@ export default class Chat extends React.Component {
         console.log("data");
         console.log(this.state.currentClient);
         console.log(this.state.user);
-        const fetchMessages = axios.get("http://localhost:3001/chat/getChats", { to: this.state.currentClient, from: this.state.user })
+        const fetchMessages = axios.get("http://localhost:3001/chat/getChats", { to: this.state.currentClient, from: "Vedang" })
             .then(
                 res => {
                     alert(res.status);
@@ -133,24 +133,24 @@ export default class Chat extends React.Component {
             )
         const myMessages = [
             {
-                To: "t1",
-                From: "F1",
+                To: "Jayesh",
+                From: "Vedang",
                 DateTime: "Jan 03 2:00pm",
                 read: "False",
                 Text: "This is a sample Text",
                 UserDp: "https://picsum.photos/id/237/200/300"
             },
             {
-                To: "F1",
-                From: "t1",
+                To: "Jayesh",
+                From: "Vedang",
                 DateTime: "Jan 03 2:00pm",
                 read: "False",
                 Text: "This is a sample Text",
                 UserDp: "https://picsum.photos/id/237/200/300"
             },
             {
-                To: "t1",
-                From: "F1",
+                To: "Vedang",
+                From: "Jayesh",
                 DateTime: "Jan 03 2:00pm",
                 read: "False",
                 Text: "This is a sample Text",

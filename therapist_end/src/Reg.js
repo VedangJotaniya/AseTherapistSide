@@ -29,7 +29,8 @@ function Reg(props) {
       E = <Login authUser={props.authUser}
         testing={testing}
         setThisUserName={props1.setThisUserName}
-        setThisUserID={props1.setThisUserID} />;
+        setThisUserID={props1.setThisUserID} 
+        goToClient={goToClient} />;
     }
     else {
       E = <SignUp authUser={props.authUser}
@@ -48,7 +49,9 @@ function Reg(props) {
     });
   }
 
-
+function goToClient(){
+  window.location.href="http://192.168.5.14:3000/";
+}
   function authUser(type) {
 
     if (type == 0) {
@@ -77,6 +80,10 @@ function Reg(props) {
                 <li className="nav-item">
                   <button className="nav-link" onClick={() => { authUser(0) }}>Sign up</button>
                 </li>
+                <li className="nav-item">
+                  <button className="nav-link" onClick={() => { window.location.href="http://192.168.5.14:3000/" }}>Sign up</button>
+                </li>
+                
               </ul>
             </div>
             <div className="d-flex justify-content-center">
