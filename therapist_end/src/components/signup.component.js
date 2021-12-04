@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { generatePath } from "react-router";
 import axios from "axios";
 
 export default class SignUp extends Component {
