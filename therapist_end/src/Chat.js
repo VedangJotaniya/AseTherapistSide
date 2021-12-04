@@ -105,7 +105,7 @@ export default class Chat extends React.Component {
             },
             {
                 name: "Mayank",
-                imageUrl: "https://picsum.photos/id/237/200/300"
+                imageUrl: "https://picsum.photos/id/245/200/300"
             }
         ];
 
@@ -135,7 +135,7 @@ export default class Chat extends React.Component {
             {
                 To: "Jayesh",
                 From: "Vedang",
-                DateTime: "Jan 03 2:00pm",
+                DateTime: "dec 01 1:00pm",
                 read: "False",
                 Text: "This is a sample Text",
                 UserDp: "https://picsum.photos/id/237/200/300"
@@ -143,7 +143,7 @@ export default class Chat extends React.Component {
             {
                 To: "Jayesh",
                 From: "Vedang",
-                DateTime: "Jan 03 2:00pm",
+                DateTime: "Dec 01 2:00pm",
                 read: "False",
                 Text: "This is a sample Text",
                 UserDp: "https://picsum.photos/id/237/200/300"
@@ -151,7 +151,7 @@ export default class Chat extends React.Component {
             {
                 To: "Vedang",
                 From: "Jayesh",
-                DateTime: "Jan 03 2:00pm",
+                DateTime: "Jan 03 11:30pm",
                 read: "False",
                 Text: "This is a sample Text",
                 UserDp: "https://picsum.photos/id/237/200/300"
@@ -159,7 +159,7 @@ export default class Chat extends React.Component {
 
         ];
         this.setState({
-            Messages: mm
+            Messages: myMessages
         });
     }
 

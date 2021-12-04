@@ -83,20 +83,20 @@ function Client(props) {
     const clientName = props.value.clientName;
     const clientID = props.value.id;
     const clientHeading = "Child";
-    const clientAbout = "about";
+    const clientAbout = props.value.assignment;
     const clientStatus = props.value.status;
     const clientDate = props.value.date;
     const clientTask = props.value.assignment;
 
     return (
 
-        <div className="card bg-light">
+        <div className="card bg-light w-25">
             <div className="card-header text-muted border-bottom-0">
                 {clientHeading}
             </div>
             <div className="card-body pt-0">
                 <div className="row">
-                    <div className="col">
+                    <div className="col-auto">
                         <h2 className="lead"><b>{clientName}</b></h2>
                         <p className="text-muted text-sm"><b>About: </b> {clientAbout}</p>
                         <ul className="ml-4 mb-0 fa-ul text-muted">
@@ -138,14 +138,30 @@ export default class Assignment extends React.Component {
                 {
                     clientName: "Jason Horn",
                     id: "0",
-                    assigment: "draw",
-                    date: "",
-                    status: ""
+                    assigment: "Sketching",
+                    date: "Dec 01",
+                    status: "InProgress"
                 },
                 {
-                    name: "A",
+                    clientName: "Mayank",
                     id: "1",
-                    task: "draw"
+                    assigment: "Music Therapy #11",
+                    date: "November 29",
+                    status: "InProgress"
+                },
+                {
+                    clientName: "Jayesh",
+                    id: "2",
+                    assigment: "Drawing #23",
+                    date: "November 28",
+                    status: "InProgress"
+                },
+                {
+                    clientName: "Danielle",
+                    id: "3",
+                    assigment: "Meditation #12",
+                    date: "November 26",
+                    status: "InProgress"
                 }
 
 
@@ -176,7 +192,7 @@ export default class Assignment extends React.Component {
                     </div>
                     <div className="card-body pb-0">
                         <div className="row d-flex align-items-stretch">
-                            <div className="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div className="col w-100">
                                 {clients}
                             </div>
                             <NewAssignment show={this.state.modalShow} onHide={() => { this.setState({ modalShow: false }); }} />
