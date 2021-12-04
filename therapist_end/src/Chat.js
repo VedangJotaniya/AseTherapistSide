@@ -77,19 +77,27 @@ function ReceiveMessage(props) {
 
 export default class Chat extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             clients: [],
-            currentClient: "F1",
-            Messages: []
+            currentClient: "Jayesh",
+            Messages: [],
+            user: ""
         }
         this.updateMessages = this.updateMessages.bind(this);
         this.handleCurrentClient = this.handleCurrentClient.bind(this);
         this.sendMessage = this.sendMessage.bind(this);
+
+
     }
 
     componentDidMount() {
+        var u = this.props.thisUserName.split(" ")[0];
+        alert("name is " + u);
+        this.setState({
+            user: u
+        })
         const myClients = [
             {
                 name: "Jayesh",
@@ -101,15 +109,28 @@ export default class Chat extends React.Component {
             }
         ];
 
-        this.updateMessages();
 
         this.setState({
             clients: myClients
         })
+        this.updateMessages();
+
     }
 
+
     updateMessages() {
-        const fetchMessages = axios.get
+        var mm;
+        console.log("data");
+        console.log(this.state.currentClient);
+        console.log(this.state.user);
+        const fetchMessages = axios.get("http://localhost:3001/chat/getChats", { to: this.state.currentClient, from: this.state.user })
+            .then(
+                res => {
+                    alert(res.status);
+                    console.log(res.data);
+                    mm = res.data;
+                }
+            )
         const myMessages = [
             {
                 To: "t1",
@@ -138,7 +159,7 @@ export default class Chat extends React.Component {
 
         ];
         this.setState({
-            Messages: myMessages
+            Messages: mm
         });
     }
 

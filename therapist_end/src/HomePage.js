@@ -57,10 +57,12 @@ export default class HomePage extends React.Component {
                             <Profile />
                         </Route>
                         <Route path="/home/Assignments" component={Assignment} />
-                        <Route path="/home/Chat" component={Chat} />
+                        <Route path="/home/Chat" component={Chat} >
+                            <Chat thisUserName={this.props.thisUserName} thisUserId={this.props.thisUserID} />
+                        </Route>
                         <Route path="/home/Appointment" component={Appointments} >
-                            <Appointments thisUserName={ this.props.thisUserName} thisUserId={this.props.thisUserID}/>
-                            </Route>
+                            <Appointments thisUserName={this.props.thisUserName} thisUserId={this.props.thisUserID} />
+                        </Route>
                         <Route path="/home/FAQ" component={FAQ} />
                     </Switch>
                 </Router>

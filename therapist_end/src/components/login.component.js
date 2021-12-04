@@ -26,13 +26,13 @@ export default class Login extends Component {
 
     LoginUser() {
 
-        alert(this.state.email, this.state.password)
+        alert("Logincalled" + this.state.email + " " + this.state.password);
         // const User = 
-        this.props.setThisUserName('jay11@gmail.com');
+        this.props.setThisUserName(this.state.email.split("@")[0]);
         this.props.setThisUserID('61ab1954f142eb05816ef617');
-        if(this.state.email == 'v1@gmail.com'){
+        if (this.state.email == 'v1@gmail.com') {
             this.props.testing('/client');
-        }else{
+        } else {
             this.props.testing('/home')
         }
         // axios.post("http://localhost:3001/auth/login", { email: this.state.email, password: this.state.password })
