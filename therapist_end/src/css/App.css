@@ -42,3 +42,10 @@
   align-items: center;
   border: #282c34;
 }
+
+.set-row {
+  height: 500px;
+  padding: 10px;
+  /* border-style: dashed; */
+}
+
