@@ -18,7 +18,7 @@ export default class Profile extends React.Component {
             skills: "",
             Notes: ""
         };
-
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
@@ -36,6 +36,14 @@ export default class Profile extends React.Component {
         });
     }
 
+    handleChange(event) {
+        var newval = prompt("enter new value");
+
+        var name = event.target.getAttribute('name');
+
+        this.setState({ [name]: newval });
+
+    }
 
     render() {
         return (
@@ -51,17 +59,17 @@ export default class Profile extends React.Component {
 
                         <h3 className="profile-username text-center">{this.state.name}</h3>
 
-                        <p className="text-muted text-center">{this.state.degree} <i class="fa-solid fa-pencil"></i></p>
+                        <p className="text-muted text-center" name="degree" onClick={this.handleChange}>{this.state.degree} <i class="fa-solid fa-pencil"></i></p>
 
                         <ul className="list-group list-group-unbordered mb-3">
                             <li className="list-group-item">
-                                <b>Office</b> <a className="float-right">{this.state.address}</a>
+                                <b>Office</b> <a className="float-right" name="address">{this.state.address}</a>
                             </li>
                             <li className="list-group-item">
-                                <b>Phone</b> <a className="float-right">{this.state.contact}</a>
+                                <b>Phone</b> <a className="float-right" name="contact">{this.state.contact}</a>
                             </li>
                             <li className="list-group-item">
-                                <b>Clients</b> <a className="float-right">{this.state.clients}</a>
+                                <b>Clients</b> <a className="float-right" name="clients">{this.state.clients}</a>
                             </li>
                         </ul>
 
@@ -78,24 +86,24 @@ export default class Profile extends React.Component {
                     </div>
                     {/* <!-- /.card-header --> */}
                     <div className="card-body">
-                        <strong><i className="fas fa-book mr-1"></i> {this.state.education}</strong>
+                        <strong ><i className="fas fa-book mr-1"></i> Education</strong>
 
-                        <p className="text-muted">
-                            {this.state.location}
+                        <p className="text-muted" name="education">
+                            {this.state.education}
                         </p>
 
                         <hr />
 
                         <strong><i className="fas fa-map-marker-alt mr-1"></i> Location</strong>
 
-                        <p className="text-muted">{this.state.location}</p>
+                        <p className="text-muted" name="location">{this.state.location}</p>
 
                         <hr />
 
                         <strong><i className="fas fa-pencil-alt mr-1"></i> Skills</strong>
 
                         <p className="text-muted">
-                            <span className="tag tag-danger">{this.state.skills}</span>
+                            <span className="tag tag-danger" name="skills">{this.state.skills}</span>
                             {/* <span className="tag tag-success">Art Therapy</span>
                             <span className="tag tag-info">Painting Skills</span>
                             <span className="tag tag-warning">Music enthusiast</span> */}
@@ -106,7 +114,7 @@ export default class Profile extends React.Component {
 
                         <strong><i className="far fa-file-alt mr-1"></i> Notes</strong>
 
-                        <p className="text-muted">{this.state.Notes}</p>
+                        <p className="text-muted" name="Notes">{this.state.Notes}</p>
                     </div>
                     {/* <!-- /.card-body --> */}
                 </div>
